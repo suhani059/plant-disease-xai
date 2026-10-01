@@ -54,9 +54,7 @@ image_extensions = {
     ".jpeg",
     ".png",
     ".bmp",
-    ".JPG",
-    ".JPEG",
-    ".PNG",
+    
 }
 
 class_counts = {}
@@ -66,7 +64,7 @@ for class_dir in class_dirs:
     images = [
         file
         for file in class_dir.rglob("*")
-        if file.is_file() and file.suffix in image_extensions
+        if file.is_file() and file.suffix.lower() in image_extensions
     ]
 
     class_counts[class_dir.name] = len(images)
@@ -134,7 +132,7 @@ for class_dir in class_dirs:
     images = [
         file
         for file in class_dir.rglob("*")
-        if file.is_file() and file.suffix in image_extensions
+        if file.is_file() and file.suffix.lower() in image_extensions
     ]
 
     if not images:
@@ -184,7 +182,7 @@ for class_dir in class_dirs:
     images = [
         file
         for file in class_dir.rglob("*")
-        if file.is_file() and file.suffix in image_extensions
+        if file.is_file() and file.suffix.lower() in image_extensions
     ]
 
     for image_path in images:
